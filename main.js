@@ -41,20 +41,8 @@ client.on('interactionCreate', async (interaction) => {
     }
 });
 
-client.on('messageCreate', message => {
-    console.log("a");
-    if (message.author.bot) return;
-    if (message.mentions != null) console.log(message.mentions.users);
-    if (message.mentions.has(client.user)) {
-        message.reply("Hello, World!");
-
-        console.log("mentioned by " + message.author.id);
-        console.log("in " + message.guildId);
-    }
-});
-
 // イベントセット
-//events.forEach(({ name, handler }) => client.on(name, handler));
+events.forEach(({ name, handler }) => client.on(name, handler));
 
 // botの起動とdiscordサーバーへの接続
 client.login(token);
